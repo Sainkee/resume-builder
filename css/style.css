@@ -1,0 +1,55 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+#header {
+    background-color: #928b92;
+    color: #fff;
+}
+
+main {
+    margin: 100px;
+    padding: 2rem;
+}
+
+.left {
+    background-color: #aeaca9;
+    color: #fff;
+
+}
+
+.right {
+    background-color: #ECE8DD;
+    padding-left: 2rem;
+    
+}
+
+#photot {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+#resumet {
+    margin: 2rem;
+}
+
+
+#printcv {
+    display: none;
+} 
+
+h6,h1{
+    transform: translate(-20px);
+    font-weight: 500;
+}
+
+
+.marg{
+    padding: auto 2rem;
+}
+
+
+

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+
+    <!-- bootstrap cdn -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- <link rel="stylesheet" src="css/bootstrap-icons.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+</head>
+
+<body onload="onLoad()">
+
+    <header class="text-center container-fluid p-4 mb-4" id="header">
+        <h1>Resume Generator</h1>
+        <p>------- generate cv in 3 simple steps -------</p>
+        <p> fill the form > Generate Resume > Print Resume</p>
+    </header>
+
+    <section class="container my-4 marg" id="resume-editor">
+        <div class="row gx-5">
+            <div class=" left col-sm-4 p-4" id="leftcol">
+                <form>
+                    <!-- img field -->
+                    <label for="img-field" class="form-label">Pick Your Image</label>
+                    <input type="file" class="form-control mb-2" id="img-field">
+                    <!-- add field -->
+                    <label for="addressfield" class="form-label">Your Address</label>
+                    <textarea name="" id="addressfield" cols="30" rows="3" class="form-control mb-2 "
+                        placeholder="Enter Here"></textarea>
+                    <!-- tel field -->
+                    <label for="telfield" class="form-label">Your Phone Number</label>
+                    <input type="tel" name="" id="telfield" class="form-control mb-2" placeholder="+91">
+                    <!-- mail field -->
+                    <label for="email" class="form-label">Your Email</label>
+                    <input type="email" name="" id="email" class="form-control mb-2" placeholder="xyz@gmail.com">
+                    <!-- web field -->
+                    <label for="weblink" class="form-label">Website-link</label>
+                    <input class="form-control mb-2l" type="text" id="weblink" placeholder="Enter Here">
+                    <!-- social meadia links field -->
+                    <p class="text-secondary my-2">social media links</p>
+
+                    <label for="gitfield" class="form-label">Github</label>
+                    <input class="form-control mb-2" type="text" id="gitfield" placeholder="Enter Here">
+                    <label for="linkedfield" class="form-label">Linkedin</label>
+                    <input class="form-control mb-2" type="text" id="linkedfield" placeholder="Enter Here">
+
+
+                    <label for="facefield" class="form-label">Facebook</label>
+                    <input class="form-control mb-2" type="text" id="facefield" placeholder="Enter Here">
+
+                    <label for="instafield" class="form-label">instagram</label>
+                    <input class="form-control mb-2" type="text" id="instafield" placeholder="Enter Here">
+
+                    <label for="ytfield" class="form-label">youtube</label>
+                    <input class="form-control mb-2" type="text" id="ytfield" placeholder="Enter Here">
+                    <!-- hobby section -->
+
+                    <div id='hobbyDiv'>
+                        <label for="hobbyfield" class="form-label">Hobbies</label>
+                        <input type="text" id="hobbyfield" class="form-control mb-2 hobbyf" placeholder="Enter Here">
+
+                        <div class="text-center d-grid" id="hobbyBtnDiv">
+                            <button type="button" value="" class="btn btn-outline-secondary my-2"
+                                onclick="addNewHobbyField()">Add Hobby</button>
+                        </div>
+                    </div>
+                    <div id="skillDiv">
+                        <label for="skillfield" class="form-label">Skills</label>
+                        <input type="text" id="skillfield" class="form-control mb-2 skillf" placeholder="Enter Here">
+
+                        <div id="skillBtnDiv" class="text-center d-grid">
+                            <button type="button" value="" class="btn btn-outline-secondary my-2 "
+                                onclick="addNewSkillField()">Add skill</button>
+                        </div>
+
+
+                    </div>
+
+
+
+                </form>
+
+            </div>
+            <div class="right col-sm-8 p-4">
+                <form>
+                    <div class="mb-2">
+                        <label for="namefield" class="form-label">Your Name</label>
+                        <input type="text" id="namefield" class="form-control" placeholder="Enter your name">
+                    </div>
+
+                    <!-- profession sec -->
+                    <div class="mb-2">
+                        <label for="professionfield" class="form-label">Your Profession</label>
+                        <input type="text" id="professionfield" class="form-control"
+                            placeholder="Enter your profession">
+                    </div>
+                    <div class="mb-2" id="pro-detail">
+                        <label for="aboutusfield" class="form-label">About</label>
+                        <textarea class="form-control " rows="3" placeholder="Tell about your skills..."
+                            id="aboutusfield"></textarea>
+                    </div>
+
+                    <!-- education section -->
+                    <div id="edu-container">
+                        <div class="education my-3">
+                            <label for="" class="form-label">Education</label>
+                            <div class="mb-2">
+                                <input type="text" name="" id="coursename0" class="form-control my-2 courseName "
+                                    placeholder="Course Name">
+                                <input type="text" name="" id="school0" class="form-control mb-2 placeName"
+                                    placeholder="school/college/university">
+                                <label for="completeyear" class="form-label">Year of completion</label>
+                                <input type="month" name="" id="completion-year0" class="form-control mb-2 yearName">
+                            </div>
+                        </div>
+                        <div class="text-start my-3 d-grid" id="addEduDiv">
+                            <button type="button" class="btn btn-outline-secondary p-2" id="addnewEdu">Add New
+                                Education</button>
+                        </div>
+                    </div>
+
+                    <!-- experience section -->
+
+                    <div id="exp-container">
+                        <div class="experience mt-3">
+                            <label class="form-label">Experience/Internship</label>
+                            <div class="my-2">
+                                <input type="text" name="" id="exp-field-name0" class="form-control mb-2 "
+                                    placeholder="Designation">
+                                <input type="text" id="job-Profile0" class="form-control mb-2"
+                                    placeholder="About job profile">
+                                <label for="exp-date" class="form-label"> Month/Year of Experienced</label>
+                                <input type="text" name="" id="exp-date0" class="form-control mb-2">
+                            </div>
+                        </div>
+                        <div class="text-center my-3 d-grid" id="addExpDiv">
+                            <button type="button" class="btn btn-outline-secondary p-2" id="addNewExp">Add New
+                                Experience</button>
+
+                        </div>
+                    </div>
+
+                    <div class="text-center  mt-5 d-grid">
+                        <button type="button" class="btn btn-success py-2" id='generate-cv'>Generate Resume</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- template section -->
+
+
+    <section class="container-fluid marg" id="resume-template">
+        <div class="row">
+            <div class="col-sm-4 text-center left ">
+                <div>
+                    <img id="photot"
+                        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.dZ5jtDvU7KmHfjCen9dp1QAAAA%26pid%3DApi&f=1&ipt=0e3c6507c74a78743c6e4594e7588fb76de99e4179fc5bb3fe033e9cccc56ea1&ipo=images"
+                        class="img-fluid pro-img my-4" alt="profile photo">
+                </div>
+                <div>
+                    <table class="text-start table">
+
+                        <tr >
+                            <th scope="">
+                                <p><i class="bi bi-geo-alt"></i></p>
+                             <td>
+                                <p id="addresst" class="text-break"> west,central,andheri,navi mumbai,india</p>
+                             </td>
+                            </th>
+                        </tr>
+
+                        <tr class="">
+                            <th scope="">
+                                <p><i class="bi bi-telephone-plus"></i></p>
+                            <td>
+                                <p id="phonet">+91 123456789</p>
+                            </td>
+                            </th>
+                        </tr>
+                        <tr class="">
+                            <th>
+                                <p><i class="bi bi-envelope-at"></i></p>
+                            <td>
+                                <p id="mailt">xyz@gmail.com</p>
+                            </td>
+                            </th>
+
+                        </tr>
+                        <tr class="">
+                            <th>
+                                <p><i class="bi bi-browser-chrome"></i></P>
+                            </th>
+                            <td>
+                                <p><a id="webt" href="">www.example.com</a></p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <i class="bi bi-github"></i>
+                            </td>
+                            <td>
+                                <p><a id="gitt" href="">github-link</a></p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <i class="bi bi-linkedin"></i>
+                            </td>
+                            <td>
+                                <p><a id="linkedt" href="">linkedin link</a></p>
+                            </td>
+
+                        <tr>
+                            <td>
+                                <i class="bi bi-youtube"></i>
+                            </td>
+                            <td>
+                                <p>
+                                <p><a id="ytt" href="">youtube link</a></p>
+
+                                </p>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <i class="bi bi-facebook"></i>
+                            </td>
+                            <td>
+                                <p><a id="facet" href="">facebook link</a></p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <i class="bi bi-instagram"></i>
+                            </td>
+                            <td>
+                                <p><a id="instat" href="">instagram link</a></p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+
+            </div>
+
+
+            <div class="col-sm-8 right ">
+
+
+                <!-- name section -->
+
+
+                <div class="my-5">
+                    <h1 id="namet">SANTOSH KUMAR GUPTA</h1>
+                    <h6 class="p-3" id="professiont"><i class="bi bi-square-fill" style="font-size:small;"></i> Software
+                        developer
+                    </h6>
+                </div>
+
+
+                <!-- introduction section -->
+                <div class="p-3">
+                    <h6><i class="bi bi-square-fill" style="font-size:small;"></i> About us</h6>
+                    <div>
+                        <P id="aboutust">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor quia error
+                            eos
+                            eligendi
+                            quam ad
+                            corrupti deserunt fugit consequatur. In dolorem eius totam? Optio, in! Quas, dolores
+                            tempora
+                            corporis aperiam praesentium suscipit commodi ab vitae quos error deserunt quod
+                            blanditiis.
+                        </P>
+                    </div>
+
+                    <!-- education section -->
+
+                    <div id="edusection" class="educontainert">
+                        <h6><i class="bi bi-square-fill" style="font-size:small;"></i> Education</h6>
+
+                        <div id="edusec">
+                            <P id="coursenamet">Lorem ipsum dolor sit amet,</P>
+                            <P id="placenamet">Lorem ipsum dolor sit amet,</P>
+                            <p id="completeyeart"></p>
+                        </div>
+                    </div>
+
+                    <!-- experience section -->
+                    <div>
+                        <h6><i class="bi bi-square-fill" style="font-size:small;"></i> Experience</h6>
+                        <div id="expsec">
+                            <P id="expobject">Lorem ipsum dolor sit amet,</P>
+                        </div>
+                    </div>
+                    <!---------- hobby section -------->
+
+                    <div class="hobbysection">
+                        <h6><i class="bi bi-square-fill" style="font-size:small;"></i> Hobbies</h6>
+
+                        <div id="hobbysec">
+                            <ul>
+                               <li>vlogging</li>
+                                </ul>
+                           
+                        </div>
+                    </div>
+
+
+                    <div class="skillsection">
+                        <h6><i class="bi bi-square-fill" style="font-size:small;"></i> Skills</h6>
+
+                        <div id="skillsec" class="">
+                            <ul>
+                            <li>skill</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+
+    <section class="text-center my-4 py-4" id="printCv">
+        <button class="btn btn-success my-2 text-center" onclick="printcv()">Print Resume</button>
+    </section>
+    </div>
+</body>
+<script src="js/mainscript.js"></script>
+
+</html>
